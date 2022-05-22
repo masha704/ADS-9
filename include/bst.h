@@ -3,7 +3,7 @@
 
 template <typename T>
 class BST {
-public:
+ public:
     struct Node {
         T value;
         int count;
@@ -21,7 +21,7 @@ public:
     int search(T value) {
         return searchNode(root, value);
     }
-private:
+ private:
     Node* root;
     Node* addNode(Node* root, T data) {
         if (root == nullptr) {
@@ -29,14 +29,11 @@ private:
             root->value = data;
             root->count = 1;
             root->left = root->right = nullptr;
-        }
-        else if (root->value < data) {
+        } else if (root->value < data) {
             root->right = addNode(root->right, data);
-        }
-        else if (root->value < data) {
+        } else if (root->value < data) {
             root->left = addNode(root->left, data);
-        }
-        else {
+        } else {
             root->count++;
         }
         return root;
@@ -48,8 +45,7 @@ private:
             int depth_right = depthTree(root->right);
             if (depth_left > depth_right) {
                 return depth_left + 1;
-            }
-            else {
+            } else {
                 return depth_right + 1;
             }
     }
