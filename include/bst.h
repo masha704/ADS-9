@@ -3,7 +3,7 @@
 #define INCLUDE_BST_H_
 
 template <typename T>
-  class BST {
+class BST {
       public:
      struct Node {
        T value;
@@ -60,5 +60,5 @@ template <typename T>
       else
        return root->count;
     }
-  };
+};
 #endif  // INCLUDE_BST_H_
