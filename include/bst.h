@@ -33,7 +33,7 @@ class BST {
             root->left = root->right = nullptr;
         } else if (root->value < data) {
             root->right = addNode(root->right, data);
-        } else if (root->value < data) {
+        } else if (root->value > data) {
             root->left = addNode(root->left, data);
         } else {
             root->count++;
