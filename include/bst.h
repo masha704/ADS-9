@@ -4,16 +4,26 @@
 
 template <typename T>
   class BST {
-   public:
-    struct Node {
-      T value;
-      int count;
-      Node* left;
-      Node* right;
-    };
-    private:
-    Node* root;
-    Node* addNode(Node* root, T data) {
+    public:
+     struct Node {
+       T value;
+       int count;
+       Node* left;
+       Node* right;
+       BST() :root(nullptr) {}
+      ~BST() {}
+      void add(T data) {
+        root = addNode(root, value);
+      }
+      int depth() {
+        return deptTree(root);
+      }
+      int search(T value) {
+        return searchNode(root, value);
+      }
+     private:
+     Node* root;
+     Node* addNode(Node* root, T data) {
       if (root == nullptr) {
         root = new Node;
         root->value = data;
@@ -33,7 +43,7 @@ template <typename T>
          return 0;
       int depth_left = depthTree(root->left);
       int depth_right = depthTree(root->right);
-      if(depth_left > depth_right) {
+      if (depth_left > depth_right) {
         return depth_left + 1;
       } else {
         return depth_right + 1;
@@ -47,20 +57,7 @@ template <typename T>
       else if (root->value > data)
         return searchNode(root->left, data);
       else
-        return root->count;
-    } 
-   public:
-     BST() :root(nullptr) {}
-     ~BST() {}
-     void add(T data) {
-       root = addNode(root, value);
-     }
-     int depth() {
-       return deptTree(root);
-     }
-     int search(T value) {
-       return searchNode(root, value);
-     }
-    };
-
+       return root->count;
+    }
+   };
 #endif  // INCLUDE_BST_H_
