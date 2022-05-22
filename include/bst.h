@@ -17,7 +17,7 @@ class BST {
         root = addNode(root, data);
     }
     int depth() {
-        return deptTree(root);
+        return depthTree(root);
     }
     int search(T data) {
         return searchNode(root, data);
