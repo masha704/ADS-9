@@ -42,15 +42,16 @@ class BST {
     }
     int depthTree(Node* root) {
         int depth_left, depth_right;
-        if (root == nullptr || (root->left == nullptr && root->right == nullptr))
+        if (root == nullptr || (root->left == nullptr && root->right == nullptr)) {
             return 0;
-            depth_left = depthTree(root->left);
-            depth_right = depthTree(root->right);
-            if (depth_left > depth_right) {
-                return depth_left + 1;
-            } else {
-                return depth_right + 1;
-            }
+        }
+        depth_left = depthTree(root->left);
+        depth_right = depthTree(root->right);
+        if (depth_left > depth_right) {
+            return depth_left + 1;
+        } else {
+            return depth_right + 1;
+        }
     }
     int searchNode(Node* root, T data) {
         if (root == nullptr)
