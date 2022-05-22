@@ -4,7 +4,7 @@
 
 template <typename T>
   class BST {
-     public:
+      public:
      struct Node {
        T value;
        int count;
@@ -22,7 +22,7 @@ template <typename T>
       int search(T value) {
         return searchNode(root, value);
       }
-     private:
+      private:
       Node* root;
       Node* addNode(Node* root, T data) {
       if (root == nullptr) {
@@ -60,5 +60,5 @@ template <typename T>
       else
        return root->count;
     }
-   };
+  };
 #endif  // INCLUDE_BST_H_
