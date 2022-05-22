@@ -14,13 +14,13 @@ class BST {
     BST() :root(nullptr) {}
     ~BST() {}
     void add(T data) {
-        root = addNode(root, value);
+        root = addNode(root, data);
     }
     int depth() {
         return deptTree(root);
     }
-    int search(T value) {
-        return searchNode(root, value);
+    int search(T data) {
+        return searchNode(root, data);
     }
 
  private:
@@ -41,10 +41,11 @@ class BST {
         return root;
     }
     int depthTree(Node* root) {
-        if (root == nullptr || (root->left == nullptr && root->right == nullptr)
+        int depth_left, depth_right;
+        if (root == nullptr || (root->left == nullptr && root->right == nullptr))
             return 0;
-            int depth_left = depthTree(root->left);
-            int depth_right = depthTree(root->right);
+            depth_left = depthTree(root->left);
+            depth_right = depthTree(root->right);
             if (depth_left > depth_right) {
                 return depth_left + 1;
             } else {
