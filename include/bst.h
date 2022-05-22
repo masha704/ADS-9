@@ -4,12 +4,13 @@
 
 template <typename T>
   class BST {
-    public:
+     public:
      struct Node {
        T value;
        int count;
        Node* left;
        Node* right;
+     };
        BST() :root(nullptr) {}
       ~BST() {}
       void add(T data) {
@@ -22,8 +23,8 @@ template <typename T>
         return searchNode(root, value);
       }
      private:
-     Node* root;
-     Node* addNode(Node* root, T data) {
+      Node* root;
+      Node* addNode(Node* root, T data) {
       if (root == nullptr) {
         root = new Node;
         root->value = data;
@@ -36,8 +37,8 @@ template <typename T>
       } else {
         root->count++;
       }
-      return root;
-    }
+        return root;
+      }
     int depthTree(Node* root) {
       if (root == nullptr || (root->left == nullptr && root->right == nullptr)
          return 0;
